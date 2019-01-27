@@ -284,7 +284,7 @@ export default {
     },
     //选中Category右侧列表的某个选项时，进行筛选，重新获取数据并渲染
     getCategoryIds(id, name) {
-	  console.log(id, name)
+      console.log(id, name);
       this.restaurant_category_ids = id;
       this.sortBy = "";
       this.foodTitle = this.headTitle = name;
@@ -293,12 +293,14 @@ export default {
     sortList(event) {
       let node;
       // 如果点击的是 span 中的文字，则需要获取到 span 的父标签 p
+      
       if (event.target.nodeName.toUpperCase() !== "P") {
         node = event.target.parentNode;
       } else {
         node = event.target;
       }
       this.sortByType = node.getAttribute("data");
+      // console.log(event.target.parentNode)
       this.sortBy = "";
     },
     //筛选选项中的配送方式选择
@@ -314,6 +316,7 @@ export default {
         //delivery_mode已有值且不等于当前选择值，则赋值delivery_mode为当前所选id
       } else {
         this.delivery_mode = id;
+        
       }
     },
     //点击商家活动，状态取反

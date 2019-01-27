@@ -5,6 +5,8 @@ const city = r => require.ensure([], () => r(require('../page/city/city')), 'cit
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
 const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
+const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
+const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
 
 
 
@@ -44,6 +46,16 @@ export default [{
         {
             path: '/food',
             component: food
+        },
+        //搜索页
+        {
+            path: '/search/:geohash',
+            component: search
+        },
+        //个人信息页
+        {
+            path: '/profile',
+            component: profile
         },
     ]
 }]
