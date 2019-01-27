@@ -81,7 +81,7 @@ export default {
         sortgroupcity(){
             let sortobj = {};
             for (let i = 65; i <= 90; i++) {
-                if (this.groupcity[String.fromCharCode(i)]) {
+                if (this.groupcity[String.fromCharCode(i)]) {       // Unicode 转换为字符串
                     sortobj[String.fromCharCode(i)] = this.groupcity[String.fromCharCode(i)];
                 }
             }
