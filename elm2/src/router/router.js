@@ -7,6 +7,8 @@ const msite = r => require.ensure([], () => r(require('../page/msite/msite')), '
 const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
 const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
 const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
+const info = r => require.ensure([], () => r(require('../page/profile/children/info')), 'info')
+const setusername = r => require.ensure([], () => r(require('../page/profile/children/children/setusername')), 'setusername')
 
 
 
@@ -55,7 +57,15 @@ export default [{
         //个人信息页
         {
             path: '/profile',
-            component: profile
+            component: profile,
+            children: [{
+                path: 'info', //个人信息详情页
+                component: info,
+                children: [{
+                    path: 'setusername',
+                    component: setusername,
+                }]
+            }]
         },
     ]
 }]
