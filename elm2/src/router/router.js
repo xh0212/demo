@@ -9,8 +9,13 @@ const search = r => require.ensure([], () => r(require('../page/search/search'))
 const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
 const info = r => require.ensure([], () => r(require('../page/profile/children/info')), 'info')
 const setusername = r => require.ensure([], () => r(require('../page/profile/children/children/setusername')), 'setusername')
-
-
+const address = r => require.ensure([], () => r(require('../page/profile/children/children/address')), 'address')
+const add = r => require.ensure([], () => r(require('../page/profile/children/children/children/add')), 'add')
+const addDetail = r => require.ensure([], () => r(require('../page/profile/children/children/children/children/addDetail')), 'addDetail')
+const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
+const shopDetail = r => require.ensure([], () => r(require('../page/shop/children/shopDetail')), 'shopDetail')
+const foodDetail = r => require.ensure([], () => r(require('../page/shop/children/foodDetail')), 'foodDetail')
+const shopSafe = r => require.ensure([], () => r(require('../page/shop/children/children/shopSafe')), 'shopSafe')
 
 
 
@@ -64,7 +69,34 @@ export default [{
                 children: [{
                     path: 'setusername',
                     component: setusername,
+                },{
+                    path: 'address',
+                    component: address,     //编辑地址
+                    children:[{
+                        path:'add',
+                        component:add,
+                        children:[{
+                            path:'addDetail',
+                            component:addDetail
+                        }]
+                    }]
                 }]
+            }]
+        },
+         //商铺详情页
+         {
+            path: '/shop',
+            component: shop,
+            children: [{
+                path: 'foodDetail', //食品详情页
+                component: foodDetail,
+            }, {
+                path: 'shopDetail', //商铺详情页
+                component: shopDetail,
+                children: [{
+                    path: 'shopSafe', //商铺安全认证页
+                    component: shopSafe,
+                }, ]
             }]
         },
     ]
