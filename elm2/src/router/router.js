@@ -30,6 +30,7 @@ const pointsDetail = r => require.ensure([], () => r(require('../page/points/chi
 const service = r => require.ensure([], () => r(require('../page/service/service')), 'service')
 const questionDetail = r => require.ensure([], () => r(require('../page/service/children/questionDetail')), 'questionDetail')
 const download = r => require.ensure([], () => r(require('../page/download/download')), 'download')
+const confirmOrder = r => require.ensure([], () => r(require('../page/confirmOrder/confirmOrder')), 'confirmOrder')
 
 
 
@@ -175,5 +176,34 @@ export default [{
             path: '/download',
             component: download
         },
+        //确认订单页
+        {
+            path: '/confirmOrder',
+            component: confirmOrder,
+            // children: [{
+            //     path: 'remark', //订单备注
+            //     component: remark,
+            // }, {
+            //     path: 'invoice', //发票抬头
+            //     component: invoice,
+            // }, {
+            //     path: 'payment', //付款页面
+            //     component: payment,
+            // }, {
+            //     path: 'userValidation', //用户验证
+            //     component: userValidation,
+            // }, {
+            //     path: 'chooseAddress', //选择地址
+            //     component: chooseAddress,
+            //     children: [{
+            //         path: 'addAddress', //添加地址
+            //         component: addAddress,
+            //         children: [{
+            //             path: 'searchAddress', //搜索地址
+            //             component: searchAddress,
+            //         }]
+            //     }, ]
+            // }, ]
+        }
     ]
 }]

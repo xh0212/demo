@@ -113,6 +113,7 @@ export default {
 		let initCart = getStore('buyCart');
 		if (initCart) {
 			state.cartList = JSON.parse(initCart);
+			// console.log(state)
 		}
 	},
 	//清空当前商品的购物车信息
@@ -187,12 +188,11 @@ export default {
 		state.needValidation = needValidation;
 	},
 	//保存下单后购物id 和 sig
-	[SAVE_CART_ID_SIG](state, {
-		cart_id,
-		sig
-	}) {
+	[SAVE_CART_ID_SIG](state, {cart_id,sig}) {
+		console.log(state)
 		state.cart_id = cart_id;
 		state.sig = sig;
+		
 	},
 	//保存下单参数，用户验证页面调用
 	[SAVE_ORDER_PARAM](state, orderParam) {
